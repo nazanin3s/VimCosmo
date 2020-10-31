@@ -22,3 +22,20 @@ $(document).ready(function(){
 $(function() {
   $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
 });
+
+$('.addto').on('click',function(){
+
+    var button = $(this);
+    var cart = $('#shopping');
+    var cartTotal = cart.attr('data-totalitems');
+    var newCartTotal = parseInt(cartTotal) + 1;
+
+    // button.addClass('sendtocart');
+    setTimeout(function(){
+      // button.removeClass('sendtocart');
+      cart.addClass('shake').attr('data-totalitems', newCartTotal);
+      setTimeout(function(){
+        cart.removeClass('shake');
+      },500)
+    },500)
+  });
